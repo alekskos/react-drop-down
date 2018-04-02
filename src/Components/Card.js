@@ -32,20 +32,16 @@ export class Card extends Component {
                     Show menu
                 </button>
                 {
-                    this.state.showMenu
-                    ? (
-                    <div
-                        className="menu__items"
-                        ref={(el) => {
-                            this.dropdownMenu = el;
-                        }}>
-                        <button>Menu item 1</button>
-                        <button>Menu item 2</button>
-                        <button>Menu item 3</button>
-                    </div>
-                    )
-                    : (
-                        null
+                    this.state.showMenu && (
+                        <div
+                            className="menu__items"
+                            ref={(el) => {
+                                this.dropdownMenu = el;
+                            }}>
+                            <button>Menu item 1</button>
+                            <button>Menu item 2</button>
+                            <button>Menu item 3</button>
+                        </div>
                     )
                 }
             </div>
