@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export class Input extends Component {
     constructor(props) {
         super(props);
-        this.state = {text: '', inputText: '', mode: 'view'};
+        this.state = { text: '', inputText: '', mode: 'view' };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSave = this.handleSave.bind(this);
@@ -22,7 +22,7 @@ export class Input extends Component {
         if(this.state.mode === 'view') {
             return (
                 <div>
-                    <p>Text: {this.state.text}</p>
+                    <p>Text: <span style={{ color: 'red' }}>{this.state.text}</span></p>
                     <button onClick={this.handleEdit}>
                         Edit
                     </button>

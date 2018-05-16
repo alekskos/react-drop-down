@@ -1,22 +1,23 @@
-import React, { Component } from 'react';
-// import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
-import { Card } from './Components/Card';
-import { Timer } from './Components/Timer';
-import { Input } from './Components/Input';
-import { Scroll } from './Components/Scroll';
+import {Menu} from './Components/Menu';
+import {Timer} from './Components/Timer';
+import {Input} from './Components/Input';
+// import {Scroll} from './Components/Scroll';
+import { ContextApp } from './Components/Context'
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-          <Card />
-          <Timer />
-          <Input />
-          <Scroll />
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="App">
+                <Menu />
+                <Timer />
+                <Input />
+                {/*<Scroll />*/}
+                <ContextApp />
+            </div>
+        );
+    }
 }
 
 export default App;

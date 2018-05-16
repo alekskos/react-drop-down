@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import './Card.css';
+import React, {Component} from 'react';
+import './Menu.css';
 
-export class Card extends Component {
+export class Menu extends Component {
     constructor() {
         super();
         this.state = {
@@ -9,7 +9,9 @@ export class Card extends Component {
         };
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
+        this.dropdownMenu = React.createRef();
     }
+
     showMenu(e) {
         e.preventDefault();
         this.setState({showMenu: true}, () => {
@@ -17,14 +19,15 @@ export class Card extends Component {
         });
     }
     closeMenu(e) {
-        if (!this.dropdownMenu.contains(e.target)) {
+        if (!this.dropdownMenu.current.contains(e.target)) {
             this.setState({showMenu: false}, () => {
                 document.removeEventListener('click', this.closeMenu)
             });
         }
     }
+
     render() {
-        return(
+        return (
             <div>
                 <button
                     className="menu__button"
@@ -35,9 +38,7 @@ export class Card extends Component {
                     this.state.showMenu && (
                         <div
                             className="menu__items"
-                            ref={(el) => {
-                                this.dropdownMenu = el;
-                            }}>
+                            ref={this.dropdownMenu}>
                             <button>Menu item 1</button>
                             <button>Menu item 2</button>
                             <button>Menu item 3</button>
